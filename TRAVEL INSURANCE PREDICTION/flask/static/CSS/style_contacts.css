@@ -1,0 +1,236 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: rgb(243, 239, 239);
+}
+
+
+header {
+    background-color: rgb(254, 244, 225);
+    color: #000000;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: grey;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 95%;
+    margin: auto;
+}
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 30px;
+    border-radius: 20px;
+    background-color: #007BFF;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
+}
+
+.logo:hover {
+    transform: scale(1.1,1.1);
+    box-shadow: 0 0 20px 10px rgba(0, 123, 255, 0.5);
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.main_nav  {
+    /* font-size: 1em;
+    font-weight: bold;
+    color:#000000; */
+    margin-top:25px;
+    padding-left: 225px;
+    /*padding-top: 10px;
+    padding-right: 10px;
+    background-clip: padding-box;
+    background-color: rgb(74, 71, 71);
+    margin-left: 250px;
+    border-radius: 20px; */
+    /* color: antiquewhite; */
+}
+
+.main_nav li {
+    background-clip: padding-box;
+    padding: 10px 2px 10px 2px;
+    /* background-color: #333; */
+}
+
+.main_nav a {
+    font-size: 1em;
+    font-weight: bold;
+    color:black;
+    background-clip: padding-box;
+    padding: 15px 20px 15px 20px;
+    border-radius: 20px;
+    /* background-color: #333; */
+}
+
+.main_nav a:active {
+    font-size: 1em;
+    font-weight: bold;
+    color: wheat;
+    background-color: #007BFF;
+}
+
+
+
+.main_nav a:hover {
+    /* font-size: 1.5em; */
+    font-weight: bold;
+    color:white;
+    background-clip: padding-box;
+    background-color: black;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.active_page :hover{
+    color: wheat;
+}
+
+.active_page{
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #007BFF;
+    border-radius: 25px;
+}
+
+.active_page a{
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.contact-section {
+    max-width: 600px;
+    /* min-height: 600px; */
+    margin: 15px auto;
+    padding: 40px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h1 {
+    text-align: center;
+    margin-bottom: 45px;
+    color: black;
+    background-color: rgb(147, 147, 149);
+    padding: 25px 10px 25px 10px;
+    border-radius: 15px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    color:black;
+    margin-bottom: 20px;
+}
+
+.contact-section form {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.contact-section label {
+    font-size: 1rem;
+    color: #1c1b1b;
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-section textarea {
+    resize: vertical;
+}
+
+.contact-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.contact-section button:hover {
+    background-color: #0056b3;
+}
+
+.contact-section button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.contact_form {
+    padding: 100px 50px 100px 50px;
+}
