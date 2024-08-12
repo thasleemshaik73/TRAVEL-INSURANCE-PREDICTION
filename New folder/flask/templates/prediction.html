@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result - TripShield</title>
+    <link rel="stylesheet" href="/static/CSS/style_prediction.css">
+     <style>
+        .body{
+            background-color: rgb(243, 239, 239);
+            /* padding-bottom: 10px; */
+        }
+        .predictionResult{
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 50px 50px;
+            /* padding-bottom: 40px; */
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding-bottom: 40px;
+        }
+        .predictionHeading{
+            text-align: center;
+            margin-bottom: 50px;
+            color: black;
+            background-color: #007bff;
+            padding: 25px 10px 25px 10px;
+            border-radius: 20px;
+        }
+        .res{
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.5em;
+            color: rgb(12, 165, 12);
+            opacity: 0;
+            animation: fadeIn 2s forwards, pulse 1.5s infinite;
+        }
+        .res.green{
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.5em;
+            color: rgb(12, 165, 12);
+            opacity: 0;
+            animation: fadeIn 2s forwards, pulse 1.5s infinite;
+        }
+        .res.red {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.5em;
+            color: rgba(255, 8, 8, 0.732);
+            opacity: 0;
+            animation: fadeIn 2s forwards, pulse 1.5s infinite;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .c1{
+            margin-bottom: 40px;
+        }
+        
+        .back_nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            height: 80px; 
+        }
+
+        .back_nav .back {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF; /* Change this color as needed */
+            padding: 10px;
+            margin: 15px;
+            border-radius: 10px;
+            transition: background-color 0.5s;
+        }
+
+        .back_nav .back:hover {
+            background-color: black; /* Change this color as needed */
+        }
+
+
+     </style>
+</head>
+<body class="body">
+    <header>
+        <nav>
+            <div class="logo"><a href="/index">TripShield.</a></div>
+            <div class="main_nav">
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/predict">Predict</a></li>
+                    <li><a href="/testimonials">Testimonials</a></li>
+                    <li><a href="/contacts">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><img src="https://th.bing.com/th?id=OIP.55DCXbXlKDgEBoZhKxpzLAAAAA&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Facebook"></a>
+                <a href="https://x.com/"><img src="https://th.bing.com/th?id=OIP.KgP6GNtgqBpwPQNuS_GGCAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Twitter"></a>
+                <a href="https://www.instagram.com/"><img src="https://th.bing.com/th?id=OIP.0du0PUybhClh_jXJO6oCOQAAAA&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/home"><img src="https://th.bing.com/th?id=OIP.MCbJkylnqi4JowFJqx3YIQHaHw&w=244&h=255&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="LinkedIn"></a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="predictionResult">
+        <h1 class="predictionHeading">Prediction Result</h1>
+        <p><strong>Age :  </strong>    {{ age }}</p>
+        <p><strong>Employment Type :  </strong>    {{ employment }}</p>
+        <p><strong>Graduated :  </strong>  {{ graduated }}</p>
+        <p><strong>Annual Income :  </strong>  ${{ income }}</p>
+        <p><strong>Number of Family Members :  </strong>   {{ family }}</p>
+        <p><strong>Chronic Diseases :  </strong>   {{ chronic }}</p>
+        <p><strong>Frequent Flyer :  </strong>    {{ flyer }}</p>
+        <p><strong>Ever travelled abroad :  </strong>  {{ abroad }}</p>
+        <!-- <p><strong>Prediction for Travel Insurance:</strong> <strong>   {{ prediction_text }}</strong></p>    /         -->
+        <br>
+         <div class="c1">
+            <h3>Prediction for Travel Insurance : </h3>
+            <p class="res {{'green' if prediction_text == 'Yes' else 'red'}}"><strong>{{prediction_text}}<strong></p>
+            <p class="eligibility"></strong>{{ "Good to go.." if prediction_text == "Yes" }}</strong></p>
+            <p class="eligibility"><strong>{{ "You are eligible for the Insurance." if prediction_text == "Yes" else "You are not eligible for the Insurace." }}</strong></p>
+            <p class="eligibility"><strong>{{ "Good day!" if prediction_text == "Yes" else "Try next time.." }}</strong></p>
+            
+         </div>
+
+        <div class="back_nav">
+            <a href="/predict" class="back">Back</a>
+            <a href="/index" class="back">Home</a>
+        </div>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 TripShield. All rights reserved.</p>
+    </footer>
+        
+
+</body>
+</html>
